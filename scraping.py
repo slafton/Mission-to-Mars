@@ -70,12 +70,12 @@ def mars_news(browser):
 # Declare and define function.
 def featured_image(browser):
 
-# Visit URL
-url = 'https://spaceimages-mars.com'
-browser.visit(url)
+    # Visit URL
+    url = 'https://spaceimages-mars.com'
+    browser.visit(url)
 
-# Find and click the full image button
-full_image_elem = browser.find_by_tag('button')[1]
+    # Find and click the full image button
+    full_image_elem = browser.find_by_tag('button')[1]
     full_image_elem.click()
 
     # Parse the resulting html with soup
@@ -122,7 +122,7 @@ def mars_facts():
 browser.quit()
 
 if __name__ == "__main__":
-    
+
     # If running as script, print scraped data
     print(scrape_all())
 
