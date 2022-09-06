@@ -22,15 +22,13 @@ def scrape_all():
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
+        "hemispheres": hemispheres(browser),
         "last_modified": dt.datetime.now()
     }
 
     # Stop webdriver and return data
     browser.quit()
     return data
-
-executable_path = {'executable_path': ChromeDriverManager().install()}
-browser = Browser('chrome', **executable_path, headless=False)
 
 def mars_news(browser):
 
@@ -87,7 +85,7 @@ def featured_image(browser):
 
         # Find the relative image url
         img_url_rel = img_soup.find('img', class_='fancybox-image').get('src')
-        img_url_rel
+    
 
     except AttributeError:
         return None
@@ -101,7 +99,7 @@ def featured_image(browser):
     # ## Mars Facts
 
 # Declare and define function.
-def mars_facts():
+def mars_facts(git ):
 
     # Add try/except for error handling.
     try: 
