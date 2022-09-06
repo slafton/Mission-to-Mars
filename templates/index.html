@@ -6,76 +6,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission to Mars</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 
 <body>
+
     <body class="aliceblue" style="background-color:darkcyan;"></body>
     <div class="container">
         <!--Add Jumbotrol to header-->
-        <div class="jumbotron text-center" style="background-image: url(https://www.bing.com/images/search?view=detailV2&ccid=m3EA64yS&id=EB4DE348407907D5994B709E58C01FD24E660F32&thid=OIP.m3EA64ySXVUjzGM58ARz7wHaGb&mediaurl=https%3a%2f%2fwallpapercave.com%2fwp%2fwp2305581.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.9b7100eb8c925d5523cc6339f00473ef%3frik%3dMg9mTtIfwFiecA%26pid%3dImgRaw%26r%3d0&exph=1908&expw=2200&q=HD+Images+of+Mars&simid=608019747246974040&FORM=IRPRST&ck=DDEB9D86D173C37536D64D1AD366BF00&selectedIndex=0&ajaxhist=0&ajaxserp=0); height: 400px; background-position: center; background-size: cover;"></div>>
+        <div class="jumbotron text-center"
+            style="background-image: url(https://wallpapercave.com/wp/wp2305581.jpg); height: 400px; background-position: center; background-size: cover;">
+        </div>>
 
-            <h1 class="text-center", style=color:azure><b>Mission to Mars</b></h1>
-            <!--Add a button to activate scraping script-->
-            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button" background_position="center">Scrape New Data</a></p>
-        </div>
+        <h1 class="text-center" , style=color:azure><b>Mission to Mars</b></h1>
+        <!--Add a button to activate scraping script-->
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button" background_position="center">Scrape New
+                Data</a></p>
+    </div>
 
-        <!-- Mars News -->
-        <div class="row" id="mars-news">
-            <div class="col-md-12">
-                <div class="media">
-                    <div class="media-body">
-                        <h2 style="color:aqua;">Latest Mars News</h2>
-                        <h4 class="media-heading", style="color:aqua;">{{mars.news_title}}</h4>
-                        <p style="color:aqua;">{{mars.news_paragraph}}</p>
-                    </div>
+    <!-- Mars News -->
+    <div class="row" id="mars-news">
+        <div class="col-md-12">
+            <div class="media">
+                <div class="media-body">
+                    <h2 style="color:aqua;">Latest Mars News</h2>
+                    <h4 class="media-heading" , style="color:aqua;">{{mars.news_title}}</h4>
+                    <p style="color:aqua;">{{mars.news_paragraph}}</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Featured Image -->
-        <div style="color:aqua;" class="row" id="mars-featured-image"></div>
-        <div class="row" id="mars-featured-image">
-            <div class="col-md-8" style="color: aliceblue;" style="background-color: darkcyan;">
-              <h2 style="color:aqua;">Featured Mars Image</h2>
+    <!-- Featured Image -->
+    <div style="color:aqua;" class="row" id="mars-featured-image"></div>
+    <div class="row" id="mars-featured-image">
+        <div class="col-md-8" style="color: aliceblue;" style="background-color: darkcyan;">
+            <h2 style="color:aqua;">Featured Mars Image</h2>
 
-              <!-- if images is False/None/non-existent, then default to error message -->
-              <img
-                src="{{mars.featured_image | default('static/images/error.png', true) }}"
-                class="img-responsive"
-                alt="Responsive image"
-              />
+            <!-- if images is False/None/non-existent, then default to error message -->
+            <img src="{{mars.featured_image | default('static/images/error.png', true) }}" class="img-responsive"
+                alt="Responsive image" />
+        </div>
+
+        <div class="col-md-4">
+            <!-- Mars Facts -->
+            <div class="center" class="row" id="mars-facts">
+                <h4 style="text-align: center;">Mars Facts</h4>
+                <table border="2" class="center" class="dataframe table">
+                </table>
+                {{ mars.facts | safe }}
             </div>
+        </div>
+    </div>
 
-            <div class="col-md-4">
-                <!-- Mars Facts -->
-                <div class="center" class="row" id="mars-facts">
-                    <h4 style="text-align: center;">Mars Facts</h4>
-                    <table border=".5" class="center" class="dataframe table">
-                    </table>
-                    {{ mars.facts | safe }}
-                </div>
-            </div>
-          </div>
-
-      <!-- Section for Mars Hemispheres -->
-      <div class="row" id="mars-hemispheres">
+    <!-- Section for Mars Hemispheres -->
+    <div class="row" id="mars-hemispheres" class="center">
         <div class="page-header">
-          <h2 style="color: aqua;", class="text-center">Mars Hemispheres</h2>
+            <h2 style="color:aqua;">&nbsp&nbsp&nbspMars Hemispheres</h2>
         </div>
-            {% for hemisphere in mars.hemispheres %}
-            <div class="col-md-6">
-                <div class="img-thumbnail">
-                    <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="Responsive image" class="'img-responsive">
-                   <div class="caption">
-                        <h3>{{hemisphere.title}}</h3>
-                   </div>
+        {% for hemisphere in mars.hemispheres %}
+        <div class="col-md-6">
+            <div class="thumbnail">
+                <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="Responsive image">
+                <div class="caption">
+                    <h3>{{hemisphere.title}}</h3>
                 </div>
-
             </div>
-            {% endfor %}
+
         </div>
+        {% endfor %}
+    </div>
     </div>
 </body>
 

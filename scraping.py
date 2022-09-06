@@ -3,6 +3,8 @@
 import re
 from splinter import Browser
 from bs4 import BeautifulSoup as soup
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import datetime as dt
@@ -99,7 +101,7 @@ def featured_image(browser):
     # ## Mars Facts
 
 # Declare and define function.
-def mars_facts(git ):
+def mars_facts():
 
     # Add try/except for error handling.
     try: 
@@ -115,7 +117,7 @@ def mars_facts(git ):
     df.set_index('description', inplace=True)
     
     # Convert dataframe into HTML format, add bootstrap
-    return df.to_html()
+    return df.to_html(classes="table table-striped")
 
 # Declare and define function.
 def hemispheres(browser):
