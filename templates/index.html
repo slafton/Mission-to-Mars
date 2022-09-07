@@ -10,7 +10,7 @@
 </head>
 
 <body class="aliceblue" style="background-color:darkcyan;">
-    <div class="container">
+    <div class="container-fluid">
         <!--Add Jumbotrol to header-->
         <div class="jumbotron text-center"
             style="background-image: url(https://wallpapercave.com/wp/wp2305581.jpg); height: 400px; background-position: center; background-size: cover;">
@@ -49,7 +49,7 @@
         <div class="col-lg-4 col-md-4 col-sm-12">
             <!-- Mars Facts -->
             <div class="center" class="row" id="mars-facts">
-                <h4 style="text-align: center;">Mars Facts</h4>
+                <h4 class="label label-danger" style="text-align: center;">Mars Facts</h4>
                 <table border="2" class="center" class="dataframe table">
                 </table>
                 {{ mars.facts | safe }}
